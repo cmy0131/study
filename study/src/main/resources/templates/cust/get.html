@@ -1,0 +1,26 @@
+<script>
+$(document).ready(function(){
+	$('#update').click(function(){
+		var c=confirm('수정하시겠습니까?');
+		if(c==true){
+			$('#get_form').attr({
+				'method': 'post',
+				'action' : '[[@{/cust/update}]]'
+			});
+			$('#get_form').submit();
+		};
+		
+	});
+	
+});
+
+</script>
+
+<h1>get</h1>
+<form id="get_form">
+	ID<input type="text" name="id" th:value="${obj.id}" readonly="readonly"><br>
+	PWD<input type="password" name="pwd" th:value="${obj.pwd}"><br>
+	NAME<input type="text" name="name" th:value="${obj.name}"><br>
+	<a href="#" id="update">UPDATE</a>
+	<a th:href="@{/cust/delete(id=${obj.id})}" id="delete">DELETE</a>
+</form>

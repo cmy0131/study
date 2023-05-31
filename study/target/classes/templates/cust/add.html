@@ -1,0 +1,29 @@
+<script>
+$(document).ready(function(){
+	$('#register_form > a').click(function(){
+		var c=confirm('입력하시겠습니까?');
+		if(c==true){
+			$('#register_form').attr({
+				'method':'post',
+				'action':'[[@{/cust/register}]]'
+			});
+			$('#register_form').submit();
+		};
+		
+	});
+	
+});
+
+
+
+</script>
+
+
+
+<h1>add</h1>
+<form id="register_form">
+	ID<input type="text" name="id"><br>
+	PWD<input type="password" name="pwd"><br>
+	NAME<input type="text" name="name"><br>
+	<a href="#">REGISTER</a>
+</form>

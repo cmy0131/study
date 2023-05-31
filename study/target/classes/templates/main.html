@@ -17,8 +17,14 @@
 			<li><a th:href="@{/ajax}">AJAX</a></li>
 			<li><a>MAP</a></li>
 			<li><a>Chart</a></li>
-			<li><a>Cust DB</a></li>
+			<li><a th:href="@{/cust}">Cust DB</a></li>
 			<li><a>Item DB</a></li>
+		</ul>
+		<ul th:if="${session.logincust==null}">
+			<li><a th:href="@{/login}">Login</a></li>
+		</ul>
+		<ul th:if="${session.logincust!=null}">
+			<li><a th:href="@{/logout}">logout</a></li>
 		</ul>
 	</header>
 	<section>
