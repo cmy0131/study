@@ -18,7 +18,7 @@
 			<li><a>MAP</a></li>
 			<li><a>Chart</a></li>
 			<li><a th:href="@{/cust}">Cust DB</a></li>
-			<li><a>Item DB</a></li>
+			<li><a th:href="@{/item}">Item DB</a></li>
 		</ul>
 		<ul th:if="${session.logincust==null}">
 			<li><a th:href="@{/login}">Login</a></li>

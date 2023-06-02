@@ -1,0 +1,27 @@
+<style>
+#result{
+	width:600px;
+	border:1px solid red;
+}
+
+#iimg{
+	width:50px;
+}
+
+</style>
+
+<h1>getall</h1>
+<table id="result">
+	<thead>
+		<tr><th>IMG</th><th>ID</th><th>NAME</th><th>PRICE</th><th>PDATE</th></tr>
+	</thead>
+	<tbody>
+		<tr th:each="p:${plist}">
+			<td><img id="iimg" th:src="@{/img/}+${p.imgname}"></td>
+			<td><a th:href="@{/item/get(id=${p.id})}" th:text="${p.id}"></a></td>
+			<td th:text="${p.name}"></td>
+			<td th:text="${p.price}"></td>
+			<td th:text="${#dates.format(p.rdate, 'yyyy-MM-dd')}"></td>
+		</tr>
+	</tbody>
+</table>
