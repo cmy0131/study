@@ -76,7 +76,89 @@ public class AController {
 		return result;
 	}
 
-	
+	@RequestMapping("/getmarker2")
+	public Object getmarker2(String loc) {
+		JSONArray ja=new JSONArray();
+		
+		if(loc.equals("s")) {
+			JSONObject jo1=new JSONObject();
+			jo1.put("title", "국밥집");
+			jo1.put("target", "http://www.naver.com");
+			jo1.put("lat", 37.5286891);
+			jo1.put("lng", 127.061432);
+			jo1.put("img", "b01.jpg");
+			ja.add(jo1);
+			
+			JSONObject jo2 = new JSONObject();
+			jo2.put("title", "짬뽕집");
+			jo2.put("target", "http://www.daum.net");
+			jo2.put("lat", 37.5386891);
+			jo2.put("lng", 127.021432);
+			jo2.put("img", "b02.jpg");
+			ja.add(jo2);
+			
+			JSONObject jo3 = new JSONObject();
+			jo3.put("title", "닭발집");
+			jo3.put("target", "http://www.google.com");
+			jo3.put("lat", 37.5186891);
+			jo3.put("lng", 127.031432);
+			jo3.put("img", "b03.jpg");
+			ja.add(jo3);
+		}else if(loc.equals("b")) {
+            
+			JSONObject jo1 = new JSONObject();
+			jo1.put("title", "국밥집");
+			jo1.put("target", "http://www.naver.com");
+			jo1.put("lat", 35.1233984);
+			jo1.put("lng", 129.0906448);
+			jo1.put("img", "b01.jpg");
+			ja.add(jo1);
+			
+			JSONObject jo2 = new JSONObject();
+			jo2.put("title", "짬뽕집");
+			jo2.put("target", "http://www.daum.net");
+			jo2.put("lat", 35.1243984);
+			jo2.put("lng", 129.0936448);
+			jo2.put("img", "b02.jpg");
+			ja.add(jo2);
+			
+			JSONObject jo3 = new JSONObject();
+			jo3.put("title", "닭발집");
+			jo3.put("target", "http://www.google.com");
+			jo3.put("lat", 35.1253984);
+			jo3.put("lng", 129.0966448);
+			jo3.put("img", "b03.jpg");
+			ja.add(jo3);
+		}else if(loc.equals("j")) {
+			
+			JSONObject jo1 = new JSONObject();
+			jo1.put("title", "국밥집");
+			jo1.put("target", "http://www.naver.com");
+			jo1.put("lat", 33.5239183);
+			jo1.put("lng", 126.6162571);
+			jo1.put("img", "b01.jpg");
+			ja.add(jo1);
+			
+			JSONObject jo2 = new JSONObject();
+			jo2.put("title", "짬뽕집");
+			jo2.put("target", "http://www.daum.net");
+			jo2.put("lat", 33.5119183);
+			jo2.put("lng", 126.6252571);
+			jo2.put("img", "b02.jpg");
+			ja.add(jo2);
+			
+			JSONObject jo3 = new JSONObject();
+			jo3.put("title", "닭발집");
+			jo3.put("target", "http://www.google.com");
+			jo3.put("lat", 33.5109183);
+			jo3.put("lng", 126.6242571);
+			jo3.put("img", "b03.jpg");
+			ja.add(jo3);
+		};
+		
+		
+		return ja;
+	}
 	
 	
 	
