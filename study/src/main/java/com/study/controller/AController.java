@@ -160,11 +160,88 @@ public class AController {
 		return ja;
 	}
 	
+	@RequestMapping("/chart1")
+	public Object chart1() {
+		JSONObject jo=new JSONObject();
+		
+		JSONArray ja1=new JSONArray();
+		JSONArray ja2=new JSONArray();
+		
+		for(int i=1;i<=12;i++) {
+			Random r=new Random();
+			int n=r.nextInt(1000)+1;
+			ja1.add(i+"월");
+			ja2.add(n);
+		};
+		jo.put("x", ja1);
+		jo.put("mdata", ja2);
+		
+		return jo;
+	}
 	
+	@RequestMapping("/chart2")
+	public Object chart2() {
+		// {'x':[], 'mdata1':[], 'mdata2':[]}
+		JSONObject jo=new JSONObject();
+		
+		JSONArray ja1=new JSONArray();
+		JSONArray ja2=new JSONArray();
+		JSONArray ja3=new JSONArray();
+		
+		for(int i=1;i<=12;i++) {
+			Random r=new Random();
+			int n1=r.nextInt(50)+1;
+			int n2=r.nextInt(20)+1;
+			
+			ja1.add(i+"월");
+			ja2.add(n1);
+			ja3.add(n2);
+		};
+		jo.put("x", ja1);
+		jo.put("mdata", ja2);
+		jo.put("linedata", ja3);
+		
+		return jo;
+	}
 	
-	
-	
-	
+	@RequestMapping("/chart3")
+	public Object chart3(int sm, int em) {
+		//{'m':[1,2,3,4,5], 'data':[{'name':'Female', 'data':[]}, {'name':'male', 'data':[]}]}
+
+		JSONObject jo=new JSONObject();
+		
+		JSONArray ja1=new JSONArray();
+		JSONArray ja2=new JSONArray();
+		JSONArray ja3=new JSONArray();
+		
+		for(int i=sm;i<=em;i++) {
+			ja1.add(i+"월");
+			Random r=new Random();
+			int num1=r.nextInt(100)+1;
+			int num2=r.nextInt(100)+1;
+			ja2.add(num1);
+			ja3.add(num2);
+		};
+		
+		jo.put("m", ja1);
+		
+		JSONArray ja=new JSONArray();
+		JSONObject jo1=new JSONObject();
+		jo1.put("name", "Female");
+		jo1.put("data", ja2);
+		JSONObject jo2=new JSONObject();
+		jo2.put("name", "male");
+		jo2.put("data", ja3);
+		ja.add(jo1);
+		ja.add(jo2);
+		
+		jo.put("data", ja);
+		
+		return jo;
+
+		
+		
+	}
 	
 	
 	
