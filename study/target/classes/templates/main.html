@@ -40,7 +40,9 @@
 		<aside id="left_aside" th:include="${left} ? ${left} : left"></aside>
 		<aside id="center_aside" th:include="${center} ? ${center} : center"></aside>
 	</section>
-
-
+	<footer>
+		<h3 th:text="#{home.welcome('Hi', 'minch')}"></h3>
+		<h4 th:text="#{tel(010-2675-6005)}"></h4>
+	</footer>
 </body>
 </html>
