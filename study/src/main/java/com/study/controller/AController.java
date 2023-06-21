@@ -244,7 +244,16 @@ public class AController {
 	}
 	
 	
-	
+	@RequestMapping("/checkemail")
+	public Object checkemail(String email) {
+		
+		
+		
+		
+		
+		
+		return 0;
+	}
 	
 	
 	

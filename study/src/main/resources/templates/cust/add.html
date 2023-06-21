@@ -1,4 +1,12 @@
 <script>
+
+
+function emailNumber(data){
+	
+	
+}
+
+
 $(document).ready(function(){
 	$('#register_form > a').click(function(){
 		var c=confirm('입력하시겠습니까?');
@@ -8,7 +16,21 @@ $(document).ready(function(){
 				'action':'[[@{/cust/register}]]'
 			});
 			$('#register_form').submit();
-		};
+		};	
+	});
+	
+	
+	$('#email-check').click(function(){
+		var email=$('#email').val();
+		$('#anumber').attr('style','display:inline');		
+		
+		$.ajax({
+			url:'[[@{/checkemail}]]',
+			data:{'email':email},
+			success=function(data){
+				emailNumber(data);
+			}
+		});
 		
 	});
 	
@@ -25,5 +47,8 @@ $(document).ready(function(){
 	ID<input type="text" name="id"><br>
 	PWD<input type="password" name="pwd"><br>
 	NAME<input type="text" name="name"><br>
+	email<input type="email" name="email">
+	<input type="button" value="email-check" id="email-check"><br>
+	<input type="text" name="anumber" id="anumber" style="display:none;"><br>
 	<a href="#">REGISTER</a>
 </form>
