@@ -1,15 +1,12 @@
 <script>
+	var number=null;
 
 
-function emailNumber(data){
-	
-	
-}
 
 
 $(document).ready(function(){
 	$('#register_form > a').click(function(){
-		var c=confirm('ì…ë ¥í•˜ì‹œê² ìŠµë‹ˆê¹Œ?');
+		var c=confirm('ÀÔ·ÂÇÏ½Ã°Ú½À´Ï±î?');
 		if(c==true){
 			$('#register_form').attr({
 				'method':'post',
@@ -27,8 +24,26 @@ $(document).ready(function(){
 		$.ajax({
 			url:'[[@{/checkemail}]]',
 			data:{'email':email},
-			success=function(data){
-				emailNumber(data);
+			success:function(data){
+				number=data;
+				alert('ÀÎÁõ¹øÈ£¸¦ º¸³Â½À´Ï´Ù.');
+			}
+		});
+		
+	});
+	
+	$('#anumber').keyup(function(){
+		var anumber=$(this).val();
+		
+		$.ajax({
+			url:'[[@{/checkanumber}]]',
+			data:{'anumber':anumber,'number':number},
+			success:function(data){
+				if(data=1){
+					alert('ÀÌ¸ŞÀÏ ÀÎÁõµÇ¾ú½À´Ï´Ù.');
+				}else{
+					alert('ÀÌ¸ŞÀÏ ÀÎÁõ ½ÇÆĞÇÏ¿´½À´Ï´Ù.');
+				}
 			}
 		});
 		
@@ -47,7 +62,7 @@ $(document).ready(function(){
 	ID<input type="text" name="id"><br>
 	PWD<input type="password" name="pwd"><br>
 	NAME<input type="text" name="name"><br>
-	email<input type="email" name="email">
+	email<input type="email" name="email" id="email">
 	<input type="button" value="email-check" id="email-check"><br>
 	<input type="text" name="anumber" id="anumber" style="display:none;"><br>
 	<a href="#">REGISTER</a>

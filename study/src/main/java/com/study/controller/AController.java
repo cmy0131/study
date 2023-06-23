@@ -14,9 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.study.dto.Cust;
 import com.study.dto.Rank;
 import com.study.service.CustService;
+import com.study.service.MailService;
 
 @RestController
 public class AController {
+	
+	@Autowired
+	MailService mservice;
 	
 	@Autowired
 	CustService cservice;
@@ -246,16 +250,27 @@ public class AController {
 	
 	@RequestMapping("/checkemail")
 	public Object checkemail(String email) {
+		String code;
+		String subject="회원가입 인증번호 입니다.";
+		StringBuffer key=new StringBuffer();
+		Random rnd=new Random();
+		for(int i=0;i<6;i++) {
+			key.append(rnd.nextInt(10));
+		}
+		code=key.toString();
+		mservice.sendMail(email, code, subject);
 		
-		
-		
-		
-		
-		
-		return 0;
+		return code;
 	}
 	
-	
+	@RequestMapping("/checkanumber")
+	public Object checkanumber(String anumber, String number) {
+		if(anumber==number) {
+			return 1;
+		}else {
+			return 0;
+		}
+	}
 	
 	
 	
